@@ -39,8 +39,8 @@
           </li>
         </ul>
         <div class="flex flex-col ml-2 mt-4 lg:mt-8 lg:w-4/12">
-          <a href="../assets/my-cv.pdf" class="my-2 mx-1" download>
-            <Button2 btnText="Download CV"  class="w-full max-w-xs" />
+          <a href="/my-cv.pdf" class="my-2 mx-1" target="_blank">
+            <Button2 btnText="View CV"  class="w-full max-w-xs" />
           </a>
           <a href="/allProjects" class="my-2 mx-1">
             <Button btnText="My Work" class="w-full max-w-xs" />
@@ -131,13 +131,13 @@
   </div>
 
 
-  <form action="" class="my-8 text-lg text-gray-800 w-full sm:w-9/12 md:grid md:grid-cols-2 xl:w-auto gap-5">
+  <form action="" class="my-8 text-lg text-gray-800 w-full sm:w-9/12 md:grid md:grid-cols-2 xl:w-auto gap-5" ref="contactForm">
     <input type="text" required placeholder="Your Name" class="border w-full col-span-1 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <input type="email" required placeholder="Email" class="border w-full col-span-1 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <input type="text" required placeholder="Subject" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <textarea name="" required placeholder="Message" id="" rows="5" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg resize-none transition-all duration-300 ease-in my-4"></textarea>
     <div class="flex justify-center col-span-2">
-      <Button2 btnText="Send Message" class="w-auto"/>
+      <Button2 btnText="Send Message" class="w-auto" @click="handleSubmit"/>
     </div>
   </form>
 
@@ -167,9 +167,27 @@ export default {
         {projectName: "Weather Application", projectDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur ad quos tempore optio eos in animi eligendi repudiandae reiciendis. Eos natus aperiam sit cum dolorum? Nisi.", projectStack: "HTML CSS Javascript", projectImage: "https://i.imgur.com/CxMW7Vt.png"},
         {projectName: "TMDB Movie App", projectDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur ad quos tempore optio eos in animi eligendi repudiandae reiciendis. Eos natus aperiam sit cum dolorum? Nisi.", projectStack: "HTML CSS VueJS", projectImage: "https://i.imgur.com/hkTgwPJ.jpg"},
         {projectName: "Weather Application", projectDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur ad quos tempore optio eos in animi eligendi repudiandae reiciendis. Eos natus aperiam sit cum dolorum? Nisi.", projectStack: "HTML CSS Javascript", projectImage: "https://i.imgur.com/CxMW7Vt.png"},
-      ]
+      ],
+      formData: undefined,
+      formattedForm: undefined
     }
   },
+  methods: {
+    handleSubmit(e){ 
+      e.preventDefault()
+
+      this.formData = this.$refs.contactForm
+      this.formattedForm = new FormData(this.formData)
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(this.formattedForm).toString()
+      }).then(() => console.log('Form successfully submitted')).catch((error) =>
+        alert(error))
+      }
+    }
+  ,
+
 }
 
 </script>

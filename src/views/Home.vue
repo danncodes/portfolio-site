@@ -131,13 +131,14 @@
   </div>
 
 
-  <form action="" class="my-8 text-lg text-gray-800 w-full sm:w-9/12 md:grid md:grid-cols-2 xl:w-auto gap-5" ref="contactForm">
+  <form method="POST" name="contact-form" data-netlify="true" class="my-8 text-lg text-gray-800 w-full sm:w-9/12 md:grid md:grid-cols-2 xl:w-auto gap-5" ref="contactForm">
+    <input hidden name="form-name" value="contact-form">
     <input name="name" type="text" required placeholder="Your Name" class="border w-full col-span-1 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <input name="email" type="email" required placeholder="Email" class="border w-full col-span-1 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <input name="subject" type="text" required placeholder="Subject" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
-    <textarea name="message" required placeholder="Message" id="" rows="5" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg resize-none transition-all duration-300 ease-in my-4"></textarea>
+    <textarea name="message" required placeholder="Message" rows="5" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg resize-none transition-all duration-300 ease-in my-4"></textarea>
     <div class="flex justify-center col-span-2">
-      <Button2 btnText="Send Message" class="w-auto" @click="handleSubmit"/>
+      <Button2 btnText="Send Message" class="w-auto" type="submit"/>
     </div>
   </form>
 

@@ -13,6 +13,12 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <form netlify="true" hidden name="contact-form">
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email">
+    <input type="text" placeholder="Subject">
+    <textarea name="message" placeholder="Message" rows="5"></textarea>
+    </form>
     <!-- built files will be auto injected -->
   </body>
 </html>

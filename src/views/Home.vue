@@ -135,7 +135,7 @@
     <input type="text" required placeholder="Your Name" class="border w-full col-span-1 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <input type="email" required placeholder="Email" class="border w-full col-span-1 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
     <input type="text" required placeholder="Subject" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg transition-all duration-300 ease-in my-4">
-    <textarea name="" required placeholder="Message" id="" rows="5" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg resize-none transition-all duration-300 ease-in my-4"></textarea>
+    <textarea name="message" required placeholder="Message" id="" rows="5" class="border w-full col-span-2 p-3 border-gray-400 focus:border-gray-800  focus:outline-none focus:border-2 rounded focus:shadow-lg resize-none transition-all duration-300 ease-in my-4"></textarea>
     <div class="flex justify-center col-span-2">
       <Button2 btnText="Send Message" class="w-auto" @click="handleSubmit"/>
     </div>
